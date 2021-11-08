@@ -1,5 +1,7 @@
 {
   "name": "odoomobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
