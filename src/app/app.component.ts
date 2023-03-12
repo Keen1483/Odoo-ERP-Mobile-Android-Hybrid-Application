@@ -4,6 +4,13 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Platform, AlertController, IonRouterOutlet } from '@ionic/angular';
 import { Router, RouterOutlet } from '@angular/router';
 import { Location } from '@angular/common';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+// import { SplashScreen } from '@capacitor/splash-screen';
+// import { Plugins } from '@capacitor/core';
+// const { SplashScreen } = Plugins;
+
 
 @Component({
   selector: 'app-root',
@@ -21,13 +28,34 @@ export class AppComponent implements OnInit {
                 private platform: Platform,
                 private alertController: AlertController,
                 private router: Router,
-                private location: Location) {}
+                private location: Location,
+                private splashScreen: SplashScreen,
+                private statusBar: StatusBar) {
+                    this.backButtonEvent();
+
+                    this.initializeApp();
+                }
 
     ngOnInit() {
-        this.barcodeScanner.scan().then(barcodeData => {
-            console.log('Barcode data', barcodeData);
-        }).catch(err => {
-            console.log('Error', err);
+        // this.barcodeScanner.scan().then(barcodeData => {
+        //     console.log('Barcode data', barcodeData);
+        // }).catch(err => {
+        //     console.log('Error', err);
+        // });
+    }
+
+    // async ionViewDidEnter() {
+    //     await SplashScreen.hide();
+    // }
+
+    initializeApp() {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            setTimeout(() => {
+                this.splashScreen.hide();
+            }, 1000);
+
+            // await SplashScreen.hide();
         });
     }
 
@@ -50,7 +78,7 @@ export class AppComponent implements OnInit {
 
     async presentAlertConfirm() {
         const alert = await this.alertController.create({
-            message: 'Quiter Easy News ?',
+            message: 'Quiter ?',
             buttons: [{
                 text:'Non',
                 role: 'cancel',

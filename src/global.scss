@@ -24,3 +24,50 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+$primary-color: #6600CC;
+$secondary-color: #CC3333;
+
+.modules {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    text-align: center;
+    min-height: 20%;
+
+    ion-row {
+        margin-top: 2rem;
+    }
+}
+
+.skip {
+    text-align: right;
+    position: relative;
+    top: 20%;
+
+    ion-button {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+
+// DISPLAY OR HIDDEN FORM AND MANAGE CONNEXION 
+form {
+    display: none;
+}
+
+.display-form {
+    display: block;
+    transform: scale(1);
+    opacity: 1;
+    transition: all ease-in-out 0.5s;
+}
+
+.display-manage-connexion {
+    transform: scale(2);
+    opacity: 0;
+    display: none;
+    transition: all ease-in-out 0.5s;
+}

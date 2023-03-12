@@ -1,30 +1,25 @@
-$white-color: #fff;
-$height100: 100%;
+$primary-color: #6600CC;
+$secondary-color: #CC3333;
+$thirty-color: #FFFFFF;
 
-ion-grid {
-  width: 100%;
-  height: $height100;
-  background: #dfdfdf;
+ion-title {
+  font-size: 1.5rem;
+  background: $primary-color;
+  color: $thirty-color;
 }
 
-ion-row {
-  height: $height100;
+ion-footer {
+  background: $secondary-color !important;
 }
 
-ion-col {
-  border: 1px solid #488aff;
-  background: $white-color;
-}
+ion-content {
+  .nav_modules {
+    display: flex;
+    justify-content: center;
+    min-height: 50%;
 
-ion-button {
-  font-weight: 300;
-}
-
-@media (min-width: 240px) and (max-width: 768px) {
-  ion-grid {
-    background: $white-color;
-  }
-  ion-col {
-    border: none;
+    ion-row {
+      margin-top: 0 !important;
+    }
   }
 }

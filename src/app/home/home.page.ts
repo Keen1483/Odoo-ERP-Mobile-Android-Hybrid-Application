@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
-
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-    constructor(private inAppBrowser: InAppBrowser) {}
+    constructor(private router: Router) {}
 
-    launchSite() {
-        // this.inAppBrowser.create('http://app-avenue.herokuapp.com/home', '_blank');
-        this.inAppBrowser.create('http://localhost:8069/pos/ui?config_id=1#cids=1', '_blank');
-        console.log('Hello !');
+    ngOnInit(): void {}
+
+    pointOfSale(): void {
+        this.router.navigate(['poit-of-sale']);
+    }
+
+    sale(): void {
+        this.router.navigate(['sale']);
+    }
+
+    inventory(): void {
+        this.router.navigate(['inventory']);
+    }
+
+    purchase(): void {
+        this.router.navigate(['purchase']);
     }
 
 }
